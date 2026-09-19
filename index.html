@@ -428,8 +428,8 @@
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 0.85fr 1.2fr;
+            gap: 3rem;
             align-items: center;
         }
 
@@ -539,7 +539,7 @@
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 2rem;
+            padding: 1.5rem;
             position: relative;
             overflow: hidden;
         }
@@ -572,17 +572,18 @@
 
         .sprint-columns {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.6rem;
             position: relative;
             z-index: 1;
         }
 
         .sprint-column {
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(var(--bg-rgb), 0.6);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 1.5rem;
+            padding: 0.85rem 0.6rem;
+            min-width: 0;
             transition: all 0.3s ease;
         }
 
@@ -593,11 +594,11 @@
         }
 
         .column-title {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
             color: var(--gray);
         }
 
@@ -607,6 +608,8 @@
             border-radius: 8px;
             padding: 1rem;
             margin-bottom: 0.75rem;
+            min-width: 0;
+            overflow: hidden;
             transition: all 0.3s ease;
         }
 
@@ -616,24 +619,74 @@
         }
 
         .card-label {
-            font-size: 0.75rem;
+            font-size: 0.68rem;
             font-weight: 600;
             color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.4rem;
+            white-space: nowrap;
+            overflow-wrap: break-word;
+            word-break: break-word;
         }
 
         .card-value {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--light);
+            white-space: nowrap;
+            overflow-wrap: break-word;
+            word-break: break-word;
         }
 
         .card-description {
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             color: var(--gray);
-            margin-top: 0.5rem;
+            margin-top: 0.4rem;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        /* Logo Strip */
+        .logo-strip {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding: 0 5%;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+        }
+
+        .logo-strip-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 1.25rem;
+        }
+
+        .logo-strip-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+        }
+
+        .logo-strip-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--gray);
+            opacity: 0.75;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .logo-strip-item:hover {
+            color: var(--primary);
+            opacity: 1;
         }
 
         /* Stats Bar */
@@ -641,7 +694,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
-            margin: 3rem 5%;
+            margin: 2rem 5% 3rem;
             max-width: 1400px;
             margin-left: auto;
             margin-right: auto;
@@ -1202,6 +1255,14 @@
                 grid-template-columns: 1fr;
             }
 
+            .logo-strip-row {
+                gap: 1.25rem;
+            }
+
+            .logo-strip-item {
+                font-size: 1.15rem;
+            }
+
             .panel-grid {
                 grid-template-columns: 1fr;
             }
@@ -1304,11 +1365,12 @@
                 <h1>Product Manager & Owner</h1>
                 <p class="hero-subtitle">STEM MBA Candidate (GPA 3.9) | CSPO® Certified</p>
                 <p class="hero-description">
-                    Product enthusiast with an engineering foundation from IIT Kharagpur and 5 years shipping 
-                    software and hardware products end to end in ambiguous, fast-moving environments. Built working 
-                    AI-driven pipelines and automated dashboards from scratch for real clients, owned a startup's 
-                    product lifecycle from customer discovery to pilot launch, and translated deep technical work 
-                    into clear specs and recommendations for enterprise customers at Qualcomm.
+                    Product enthusiast with an engineering foundation from IIT Kharagpur and 6 years of experience 
+                    across semiconductor, EV, 5G, software, and hardware, shipping products end to end in ambiguous, 
+                    rapidly evolving environments. Built working AI driven pipelines and automated dashboards from 
+                    scratch for real clients, owned a startup's product lifecycle from customer discovery to pilot 
+                    launch, and translated deep technical work into clear specs and recommendations for enterprise 
+                    customers at Qualcomm.
                 </p>
                 <div class="cta-buttons">
                     <a href="https://www.linkedin.com/in/mayank-das/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Connect</a>
@@ -1358,6 +1420,16 @@
         </div>
     </section>
 
+    <div class="logo-strip">
+        <div class="logo-strip-label">Education & Experience</div>
+        <div class="logo-strip-row">
+            <span class="logo-strip-item">IIT KHARAGPUR</span>
+            <span class="logo-strip-item">QUALCOMM</span>
+            <span class="logo-strip-item">ALTAIR</span>
+            <span class="logo-strip-item">UNIVERSITY AT BUFFALO</span>
+        </div>
+    </div>
+
     <div class="stats-bar">
         <div class="stat-card">
             <div class="stat-number">27%</div>
@@ -1372,8 +1444,8 @@
             <div class="stat-label">Business Case Built</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">20</div>
-            <div class="stat-label">Consultants Trained</div>
+            <div class="stat-number">30+</div>
+            <div class="stat-label">Professionals Trained</div>
         </div>
     </div>
 
