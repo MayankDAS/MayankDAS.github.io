@@ -572,7 +572,7 @@ section{padding:56px 0;scroll-margin-top:64px}
           <div class="ct">Buffalo, New York &middot; <span id="rmail"></span></div>
         </div>
         <div class="acts noprint" style="margin-top:0">
-          <a class="more" id="cvDl" href="#" hidden>Download the file</a>
+          <a class="ext" id="cvDl" href="#" hidden>Download PDF &darr;</a>
         </div>
       </div>
       <p class="rsum">Product manager and engineer who turns messy signals into decisions people trust. Product Owner for a live semiconductor supply chain data product, with five years across chipsets, embedded software and a hardware startup.</p>
@@ -733,7 +733,7 @@ section{padding:56px 0;scroll-margin-top:64px}
 
 <script>
 /* Fill these in to switch things on. Empty values keep them hidden. */
-var CONFIG = { email: "mdas4@buffalo.edu", linkedin: "https://www.linkedin.com/in/mayank-das/", resume: "" };
+var CONFIG = { email: "mdas4@buffalo.edu", linkedin: "https://www.linkedin.com/in/mayank-das/", resume: "MayankDas_PM_27.pdf" };
 
 (function(){
 "use strict";
@@ -1017,7 +1017,7 @@ copyBtn.addEventListener("click",function(e){
   try{navigator.clipboard.writeText(CONFIG.email).then(function(){done(true);},function(){done(false);});}catch(err){done(false);}
 });
 if(CONFIG.linkedin){var li=$("liLink");li.href=CONFIG.linkedin;li.target="_blank";li.rel="noopener";li.hidden=false;}
-if(CONFIG.resume){var dl=$("cvDl");dl.href=CONFIG.resume;dl.target="_blank";dl.rel="noopener";dl.hidden=false;}
+if(CONFIG.resume){var dl=$("cvDl");dl.href=CONFIG.resume;dl.target="_blank";dl.rel="noopener";dl.setAttribute("download","MayankDas_PM_27.pdf");dl.hidden=false;}
 
 /* ---------- footer: a pile of components you can grab and toss ---------- */
 var pile=$("pile"),bodies=[],PW=0,PH=0,grab=null,running=false,quiet=0,lastHover=null;
